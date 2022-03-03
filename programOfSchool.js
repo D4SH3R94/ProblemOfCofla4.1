@@ -14,22 +14,39 @@ const obtentionInfo = (signature)=>{
         alert("Error, por favor escriba una asignatura correcta.")
     }
 }
-obtentionInfo(quimica);
-
-const funcionalArrays = (pSignature) =>{
-    let materia1 = [fisica.push(pSignature),programacion.push(pSignature),quimica.push(pSignature),logica.push(pSignature)];
-}
 
 const opcionsProgramOfSchool = () =>{
-    let opcionsP = prompt("Marque 1-Para obtener informacion de Clases,2-Para saber informacion personal de clases,3-Para saber Informacion docente.")    
+    let opcionsP = prompt("Marque 1-Para obten er informacion de Clases,2-Para saber informacion personal de clases,3-Para saber Informacion docente.")    
     if(opcionsP == 1){
         let questSignature = prompt("Diga la Clase.");
-        let testArrays = ["fisica","programacion","quimica","logica"]
-        console.log(testArrays);
-        console.log(testArrays.includes(questSignature));
+        let testArrays = ["fisica","programacion","quimica","logica"];
         if(testArrays.includes(questSignature) == true ){
             obtentionInfo(questSignature);
+            opcionsProgramOfSchool();
+        }else{
+            alert("Esa asignatura no existe o cometio un error al escribir, por favor intente nuevamente.");
+            opcionsProgramOfSchool();
         }
+    }else if(opcionsP ==  2){
+        let nameInOpcions = prompt("Cual es su nombre, estudiante?");
+        nameOfStudent(nameInOpcions);
+        opcionsProgramOfSchool();
+
+    }
+}
+
+const nameOfStudent = (name_of_student)=>{
+    let a = fisica.includes(name_of_student);
+    let b = quimica.includes(name_of_student);
+    let c = programacion.includes(name_of_student);
+    let d = logica.includes(name_of_student);
+    console.log(a,b,c,d);
+    if((a||b||c||d) == true){
+        let e = [a,b,c,d];
+        let f = e.filter(e => e == true);
+        document.write(`<b>Cantidad de Clases en las q esta inscrito:</b>${f.length}<br>`);
+    }else{
+        alert("No se encuentra registrado en ninguna clase, por favor retirese.");
     }
 }
 
