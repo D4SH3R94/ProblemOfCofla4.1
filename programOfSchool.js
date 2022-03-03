@@ -16,7 +16,7 @@ const obtentionInfo = (signature)=>{
 }
 
 const opcionsProgramOfSchool = () =>{
-    let opcionsP = prompt("Marque 1-Para obten er informacion de Clases,2-Para saber informacion personal de clases,3-Para saber Informacion docente.")    
+    let opcionsP = prompt("Marque 1-Para obtener informacion de Clases,2-Para saber informacion personal de clases,3-Para saber Informacion docente.")    
     if(opcionsP == 1){
         let questSignature = prompt("Diga la Clase.");
         let testArrays = ["fisica","programacion","quimica","logica"];
@@ -31,7 +31,11 @@ const opcionsProgramOfSchool = () =>{
         let nameInOpcions = prompt("Cual es su nombre, estudiante?");
         nameOfStudent(nameInOpcions);
         opcionsProgramOfSchool();
-
+    }else if (opcionsP == 3){
+        infoDocent();
+        opcionsProgramOfSchool();
+    }else{
+        alert("Escoja una opcion valida.");
     }
 }
 
@@ -44,10 +48,16 @@ const nameOfStudent = (name_of_student)=>{
     if((a||b||c||d) == true){
         let e = [a,b,c,d];
         let f = e.filter(e => e == true);
-        document.write(`<b>Cantidad de Clases en las q esta inscrito:</b>${f.length}<br>`);
+        document.write(`<b>Cantidad de Clases en las que esta inscrito/a:</b>${f.length}<br>`);
     }else{
         alert("No se encuentra registrado en ninguna clase, por favor retirese.");
     }
 }
 
+const infoDocent = ()=>{
+    return document.write(`<b>Asignatura:</b> Fisica ------<b>Profesor:</b> Osvaldo <br>
+    <b>Asignatura:</b> Programacion ------<b>Profesor:</b> Rafael <br>
+    <b>Asignatura:</b> Quimica ------<b>Profesor:</b> Pocho <br>
+    <b>Asignatura:</b> Logica ------<b>Profesor:</b> Alain <br>`);
+}
 opcionsProgramOfSchool();
